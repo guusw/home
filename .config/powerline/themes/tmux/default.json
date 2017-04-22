@@ -13,16 +13,15 @@
                 "function": "powerline.segments.common.time.date"
             },
             {
-                "function": "powerline.segments.common.time.date",
-                "name": "time",
+                "function": "powerline.segments.common.players.dbus_player",
+                "name": "player",
                 "args": {
-                    "format": " %H:%M",
-                    "istime": true
+                    "player_name":"Spotify",
+                    "bus_name":"org.mpris.MediaPlayer2.spotify",
+                    "player_path":"/org/mpris/MediaPlayer2",
+                    "iface_prop":"org.freedesktop.DBus.Properties",
+                    "iface_player":"org.mpris.MediaPlayer2.Player"
                 }
-            },
-            {
-                "function": "powerline.segments.common.players.spotify",
-                "name": "player"
             }
         ]
     }

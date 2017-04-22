@@ -99,8 +99,8 @@ printf "\e[34m";figlet "SUPER HOI : >";printf "\e[0m"
 alias gits='git status'
 alias vrc='vim ~/.vim/vimrc'
 
-export POWERLINE=/usr/lib/python2.7/site-packages/powerline
-source /usr/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+export powerline_path=`python -c "import powerline; print(powerline.__path__[0])"`
+source $powerline_path/bindings/zsh/powerline.zsh
 
 # Rebind caps-lock to escape (vim)
 #xmodmap ~/.Xmodmap
