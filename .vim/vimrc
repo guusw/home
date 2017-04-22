@@ -15,6 +15,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/Conque-GDB'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-dispatch'
 
 call plug#end()
 
@@ -31,7 +33,9 @@ set laststatus=2
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
 
-set listchars=tab:⟶\ ,space:·
+set listchars=tab:⟶\ 
+" Optional space list character
+"space:·
 set list
 
 set number
@@ -72,3 +76,10 @@ endif " has("autocmd")
 if has('syntax') && has('eval')
     packadd matchit
 endif
+
+" Build mappings
+nnoremap <F5> :source ./.run.vim<CR>:ConqueGdbVSplit -d <C-R>=debug_cwd<CR> --args <C-R>=debug_cmd<CR><CR>
+nnoremap <F7> :Make<CR>
+
+" Build file to run relative to project structure
+set makeprg=./.makeprg
