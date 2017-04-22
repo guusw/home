@@ -1,0 +1,12 @@
+{
+    "terminal.external.linuxExec": "deepin-terminal",
+    "workbench.colorTheme": "Dark++",
+    "workbench.iconTheme": "vscode-great-icons",
+    "editor.renderWhitespace": "all",
+    "editor.formatOnType": true,
+    "C_Cpp.autocomplete": "Disabled",
+    "ycmd.path": "/home/guus/.vim/plugged/YouCompleteMe/third_party/ycmd"
+    ,
+    "ycmd.debug": true,
+    "terminal.integrated.shell.linux": "/bin/zsh"
+}
