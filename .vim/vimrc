@@ -1,0 +1,74 @@
+"
+" My vimrc file :>
+"
+set encoding=utf-8
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" Get the defaults that most users want.
+source $VIMRUNTIME/defaults.vim
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-scripts/Conque-GDB'
+
+call plug#end()
+
+set path+=**
+set encoding=utf-8
+scriptencoding utf-8
+
+" Load powerline bindings
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
+" Always show statusline
+set laststatus=2
+
+" Use 256 colours (Use this setting only if your terminal supports 256 colours)
+set t_Co=256
+
+set listchars=tab:⟶\ ,space:·
+set list
+
+if has("vms")
+    set nobackup      " do not keep a backup file, use versions instead
+else
+    set backup        " keep a backup file (restore to previous version)
+    if has("persistent_undo")
+        set undofile    " keep an undo file (undo changes after closing)
+    endif
+endif
+
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+
+    " Automatically apply key mappings
+    autocmd VimEnter xmodmap ~/.Xmodmap
+
+    " Put these in an autocmd group, so that we can delete them easily.
+    augroup vimrcEx
+    au!
+    " For all text files set 'textwidth' to 78 characters.
+    autocmd FileType text setlocal textwidth=78
+    augroup END
+
+    " Default settings for tab as 4 spaces
+    set expandtab shiftwidth=4 tabstop=4
+    " Setting for python files using tabs with 8 spaces
+    autocmd Filetype python setlocal noexpandtab sw=4 ts=4 sts=4
+
+else
+    set autoindent        " always set autoindenting on
+endif " has("autocmd")
+
+" The matchit plugin makes the % command work better, but it is not backwards
+" compatible.
+if has('syntax') && has('eval')
+    packadd matchit
+endif
