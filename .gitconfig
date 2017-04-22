@@ -1,0 +1,7 @@
+# This is Git's per-user configuration file.
+[user]
+    name = guus
+    email = guus_waals@live.nl
+[core]
+    autocrlf = input
+    editor = vim
