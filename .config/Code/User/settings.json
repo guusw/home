@@ -5,8 +5,8 @@
     "editor.renderWhitespace": "all",
     "editor.formatOnType": true,
     "C_Cpp.autocomplete": "Disabled",
-    "ycmd.path": "/home/guus/.vim/plugged/YouCompleteMe/third_party/ycmd"
-    ,
+    "terminal.integrated.shell.linux": "/bin/zsh",
+    "ycmd.path": "/home/guus/.vim/plugged/YouCompleteMe/third_party/ycmd",
     "ycmd.debug": true,
-    "terminal.integrated.shell.linux": "/bin/zsh"
+    "ycmd.confirm_extra_conf": false
 }

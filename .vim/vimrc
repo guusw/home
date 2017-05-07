@@ -17,6 +17,8 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/Conque-GDB'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-dispatch'
+Plug 'SirVer/hltisnips'
+Plug 'PotatoesMaster/i3-vim-syntax'
 
 call plug#end()
 
@@ -39,6 +41,8 @@ set listchars=tab:⟶\
 set list
 
 set number
+set relativenumber
+set nowrap
 
 if has("vms")
     set nobackup      " do not keep a backup file, use versions instead
@@ -79,7 +83,14 @@ endif
 
 " Build mappings
 nnoremap <F5> :source ./.run.vim<CR>:ConqueGdbVSplit -d <C-R>=debug_cwd<CR> --args <C-R>=debug_cmd<CR><CR>
-nnoremap <F7> :Make<CR>
+nnoremap <F7> :Dispatch<CR>
 
 " Build file to run relative to project structure
 set makeprg=./.makeprg
+
+" Snippet hotkeys
+let g:UltiSnipsExpandTrigger="<space>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+let g:ycm_confirm_extra_conf = 0

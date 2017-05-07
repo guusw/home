@@ -98,10 +98,13 @@ printf "\e[34m";figlet "SUPER HOI : >";printf "\e[0m"
 # Shortcut for git status
 alias gits='git status'
 alias vrc='vim ~/.vim/vimrc'
+alias i3c='vim ~/.config/i3/config'
+alias zrc='vim ~/.zshrc'
 
 export powerline_path=`python -c "import powerline; print(powerline.__path__[0])"`
 source $powerline_path/bindings/zsh/powerline.zsh
+# Make sure to start the powerline deamon
+powerline-daemon -q
 
 # Rebind caps-lock to escape (vim)
-#xmodmap ~/.Xmodmap
 setxkbmap -option caps:escape
