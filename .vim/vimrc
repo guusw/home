@@ -71,6 +71,9 @@ if has("autocmd")
     " Setting for python files using tabs with 8 spaces
     autocmd Filetype python setlocal noexpandtab sw=4 ts=4 sts=4
 
+    " Keep clipboard after closing vim
+    autocmd VimLeave * call system("xsel -ib", getreg('+'))
+
 else
     set autoindent        " always set autoindenting on
 endif " has("autocmd")
