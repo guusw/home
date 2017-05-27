@@ -108,3 +108,6 @@ powerline-daemon -q
 
 # Rebind caps-lock to escape (vim)
 #setxkbmap -option caps:escape
+
+# path to nim executables
+export PATH=~/nim-0.17.0/bin:$PATH
