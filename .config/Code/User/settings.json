@@ -8,5 +8,6 @@
     "terminal.integrated.shell.linux": "/bin/zsh",
     "ycmd.path": "/home/guus/.vim/plugged/YouCompleteMe/third_party/ycmd",
     "ycmd.debug": true,
-    "ycmd.confirm_extra_conf": false
+    "ycmd.confirm_extra_conf": false,
+    "window.menuBarVisibility": "toggle"
 }

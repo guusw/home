@@ -107,4 +107,4 @@ source $powerline_path/bindings/zsh/powerline.zsh
 powerline-daemon -q
 
 # Rebind caps-lock to escape (vim)
-setxkbmap -option caps:escape
+#setxkbmap -option caps:escape
