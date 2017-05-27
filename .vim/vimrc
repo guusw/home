@@ -17,8 +17,10 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/Conque-GDB'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-dispatch'
-Plug 'SirVer/hltisnips'
+Plug 'SirVer/ultisnips'
 Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'zah/nim.vim'
+Plug 'BitR/ycm-nimsuggest', { 'dir': '~/.vim/plugged/YouCompleteMe/third_party/ycmd/ycmd/completers/nim' }
 
 call plug#end()
 
@@ -55,16 +57,15 @@ endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
+    " Put these in an autocmd group, so that we can delete them easily.
+    augroup vimrcEx
+    au!
 
     " Automatically apply key mappings
     autocmd VimEnter xmodmap ~/.Xmodmap
 
-    " Put these in an autocmd group, so that we can delete them easily.
-    augroup vimrcEx
-    au!
     " For all text files set 'textwidth' to 78 characters.
     autocmd FileType text setlocal textwidth=78
-    augroup END
 
     " Default settings for tab as 4 spaces
     set expandtab shiftwidth=4 tabstop=4
@@ -74,6 +75,7 @@ if has("autocmd")
     " Keep clipboard after closing vim
     autocmd VimLeave * call system("xsel -ib", getreg('+'))
 
+    augroup END
 else
     set autoindent        " always set autoindenting on
 endif " has("autocmd")
@@ -84,16 +86,8 @@ if has('syntax') && has('eval')
     packadd matchit
 endif
 
-" Build mappings
-nnoremap <F5> :source ./.run.vim<CR>:ConqueGdbVSplit -d <C-R>=debug_cwd<CR> --args <C-R>=debug_cmd<CR><CR>
-nnoremap <F7> :Dispatch<CR>
-
-" Build file to run relative to project structure
-set makeprg=./.makeprg
-
 " Snippet hotkeys
-let g:UltiSnipsExpandTrigger="<space>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
+"let g:UltiSnipsExpandTrigger="<space>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:ycm_confirm_extra_conf = 0
