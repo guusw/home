@@ -110,4 +110,4 @@ powerline-daemon -q
 #setxkbmap -option caps:escape
 
 # path to nim executables
-export PATH=~/nim-0.17.0/bin:$PATH
+export PATH=~/nim-0.17.0/bin:~/.nimble/bin:$PATH
