@@ -1,0 +1,4 @@
+#!/bin/bash
+TARGET="packages.txt"
+echo "Writing package list to $TARGET"
+pacman -Qqe>./$TARGET

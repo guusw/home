@@ -8,5 +8,5 @@ xrandr --auto
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 numlockx &
-exec i3
+exec i3 --shmlog-size=26214400
 xset r rate 170 30

@@ -111,3 +111,6 @@ powerline-daemon -q
 
 # path to nim executables
 export PATH=~/nim-0.17.0/bin:~/.nimble/bin:$PATH
+
+# path to scripts and binaries
+export PATH=~/bin:$PATH
