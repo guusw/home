@@ -1,6 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
   export ZSH=/home/guus/.oh-my-zsh
 
@@ -93,7 +90,12 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 printf "\033c"
 
 # Print custom banner
-printf "\e[34m";figlet "SUPER HOI : >";printf "\e[0m"
+if command -v figlet >/dev/null 2>&1
+then
+    printf "\e[34m";figlet "SUPER HOI : >";printf "\e[0m"
+else
+    echo "figlet not installed"
+fi
 
 # Shortcut for git status
 alias gits='git status'
@@ -101,10 +103,15 @@ alias vrc='vim ~/.vim/vimrc'
 alias i3c='vim ~/.config/i3/config'
 alias zrc='vim ~/.zshrc'
 
-export powerline_path=`python -c "import powerline; print(powerline.__path__[0])"`
-source $powerline_path/bindings/zsh/powerline.zsh
-# Make sure to start the powerline deamon
-powerline-daemon -q
+export powerline_path=`python -c "import powerline; print(powerline.__path__[0])" 2>/dev/null`
+if [[ -n $powerline_path ]]
+then
+    source $powerline_path/bindings/zsh/powerline.zsh
+    # Make sure to start the powerline deamon
+    powerline-daemon -q
+else
+    echo "powerline-status not installed"
+fi
 
 # Rebind caps-lock to escape (vim)
 #setxkbmap -option caps:escape
@@ -114,3 +121,4 @@ export PATH=~/nim-0.17.0/bin:~/.nimble/bin:$PATH
 
 # path to scripts and binaries
 export PATH=~/bin:$PATH
+
