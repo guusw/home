@@ -100,6 +100,7 @@ alias gits='git status'
 alias vrc='vim ~/.vim/vimrc'
 alias i3c='vim ~/.config/i3/config'
 alias zrc='vim ~/.zshrc'
+alias sx=startx
 
 export powerline_path=`python -c "import powerline; print(powerline.__path__[0])"`
 source $powerline_path/bindings/zsh/powerline.zsh

@@ -147,9 +147,12 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 assign [class="Spotify"] → $ws3
-assign [class="Discord"] → $ws4
+# Workaround for the above not working
+for_window [class="Spotify"] move to workspace $ws3
+
+assign [class="discord"] → $ws4
 set $discord_exec "/usr/local/share/Discord/Discord"
-exec --no-startup-id i3-msg 'exec sakura; workspace $ws3; exec spotify; workspace $ws4; exec $discord_exec; workspace $ws1;'
+exec --no-startup-id i3-msg 'exec sakura; workspace $ws4; exec $discord_exec; workspace $ws1'
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +0.05 & pkill -RTMIN+1 i3blocks

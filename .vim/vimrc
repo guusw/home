@@ -19,10 +19,15 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'SirVer/ultisnips'
 Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'zah/nim.vim'
+Plug 'baabelfish/nvim-nim'
 Plug 'BitR/ycm-nimsuggest', { 'dir': '~/.vim/plugged/YouCompleteMe/third_party/ycmd/ycmd/completers/nim' }
+Plug 'xuhdev/vim-latex-live-preview'
+Plug 'vim-scripts/tir_black'
+Plug 'thinca/vim-localrc'
 
 call plug#end()
+
+colorscheme peachpuff
 
 set path+=**
 set encoding=utf-8
@@ -45,6 +50,8 @@ set list
 set number
 set relativenumber
 set nowrap
+
+set ts=4 sw=4 et
 
 if has("vms")
     set nobackup      " do not keep a backup file, use versions instead
@@ -69,11 +76,20 @@ if has("autocmd")
 
     " Default settings for tab as 4 spaces
     set expandtab shiftwidth=4 tabstop=4
+
     " Setting for python files using tabs with 8 spaces
     autocmd Filetype python setlocal noexpandtab sw=4 ts=4 sts=4
 
+    " Setting for nim files
+    autocmd Filetype nim setlocal expandtab sw=2 ts=2 sts=2
+    autocmd Filetype nims setlocal expandtab sw=2 ts=2 sts=2
+
     " Keep clipboard after closing vim
     autocmd VimLeave * call system("xsel -ib", getreg('+'))
+
+    " Markdown
+    autocmd FileType markdown nnoremap <F5> :w<CR>:!pandoc % -o %:r.pdf<CR><CR>
+    autocmd FileType markdown set wrap
 
     augroup END
 else
@@ -86,8 +102,29 @@ if has('syntax') && has('eval')
     packadd matchit
 endif
 
+" Alt key fix for gnome terminal
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+set timeout ttimeoutlen=50
+
+" Line movement (alt+up/down)
+nnoremap <M-j> :m .+1<CR>==
+nnoremap <M-k> :m .-2<CR>==
+inoremap <M-j> <Esc>:m .+1<CR>==gi
+inoremap <M-k> <Esc>:m .-2<CR>==gi
+vnoremap <M-j> :m '>+1<CR>gv=gv
+vnoremap <M-k> :m '<-2<CR>gv=gv
+
 " Snippet hotkeys
 "let g:UltiSnipsExpandTrigger="<space>"
 "let g:UltiSnipsJumpForwardTrigger="<c-b>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:ycm_confirm_extra_conf = 0
+let g:livepreview_previewer ='evince'
+
+" Local vimrc filename
+let g:localrc_filename = '.vimrc'
