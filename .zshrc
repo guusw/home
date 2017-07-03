@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/guus/.oh-my-zsh
+export ZSH=/home/guus/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -104,22 +104,19 @@ alias i3c='vim ~/.config/i3/config'
 alias zrc='vim ~/.zshrc'
 alias sx=startx
 
-export powerline_path=`python -c "import powerline; print(powerline.__path__[0])" 2>/dev/null`
-if [[ -n $powerline_path ]]
+if xhost >& /dev/null
 then
-    source $powerline_path/bindings/zsh/powerline.zsh
-    # Make sure to start the powerline deamon
-    powerline-daemon -q
-else
-    echo "powerline-status not installed"
+    export powerline_path=`python -c "import powerline; print(powerline.__path__[0])" 2>/dev/null`
+    if [[ -n $powerline_path ]]
+    then
+        source $powerline_path/bindings/zsh/powerline.zsh
+        # Make sure to start the powerline deamon
+        powerline-daemon -q
+    else
+        echo "powerline-status not installed"
+    fi
 fi
 
 # Rebind caps-lock to escape (vim)
-#setxkbmap -option caps:escape
-
-# path to nim executables
-export PATH=~/nim-0.17.0/bin:~/.nimble/bin:$PATH
-
-# path to scripts and binaries
-export PATH=~/bin:$PATH
+setxkbmap -option caps:escape
 
