@@ -1,3 +1,6 @@
 fonts/
 plugged/
 .netrwhist
+.undo
+.backup
+.swp
