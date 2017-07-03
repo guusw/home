@@ -19,8 +19,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'SirVer/ultisnips'
 Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'baabelfish/nvim-nim'
-Plug 'BitR/ycm-nimsuggest', { 'dir': '~/.vim/plugged/YouCompleteMe/third_party/ycmd/ycmd/completers/nim' }
+"Plug 'baabelfish/nvim-nim'
+"Plug 'BitR/ycm-nimsuggest', { 'dir': '~/.vim/plugged/YouCompleteMe/third_party/ycmd/ycmd/completers/nim' }
 Plug 'xuhdev/vim-latex-live-preview'
 Plug 'vim-scripts/tir_black'
 Plug 'thinca/vim-localrc'
@@ -61,6 +61,9 @@ else
         set undofile    " keep an undo file (undo changes after closing)
     endif
 endif
+set undodir=~/.vim/.undo//
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
