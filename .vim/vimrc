@@ -14,16 +14,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'Valloric/YouCompleteMe'
-Plug 'vim-scripts/Conque-GDB'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-dispatch'
-Plug 'SirVer/ultisnips'
-Plug 'PotatoesMaster/i3-vim-syntax'
-"Plug 'baabelfish/nvim-nim'
-"Plug 'BitR/ycm-nimsuggest', { 'dir': '~/.vim/plugged/YouCompleteMe/third_party/ycmd/ycmd/completers/nim' }
-Plug 'xuhdev/vim-latex-live-preview'
 Plug 'vim-scripts/tir_black'
-Plug 'thinca/vim-localrc'
 
 call plug#end()
 

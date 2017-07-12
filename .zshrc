@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/guus/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -103,6 +103,7 @@ alias vrc='vim ~/.vim/vimrc'
 alias i3c='vim ~/.config/i3/config'
 alias zrc='vim ~/.zshrc'
 alias sx=startx
+alias pacman='pacman --color=auto'
 
 if xhost >& /dev/null
 then
