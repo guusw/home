@@ -118,6 +118,3 @@ then
     fi
 fi
 
-# Rebind caps-lock to escape (vim)
-setxkbmap -option caps:escape
-
