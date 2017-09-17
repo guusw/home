@@ -72,3 +72,8 @@ separator=false
 [time]
 color=#c6c6c6
 command=date +%Y-%m-%d\ %H:%M:%S 
+
+[battery]
+label=BAT
+
+

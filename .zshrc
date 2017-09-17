@@ -103,6 +103,7 @@ alias vrc='vim ~/.vim/vimrc'
 alias i3c='vim ~/.config/i3/config'
 alias zrc='vim ~/.zshrc'
 alias sx=startx
+alias sipt='sudo iptables'
 
 if xhost >& /dev/null
 then
@@ -117,6 +118,5 @@ then
     fi
 fi
 
-# Rebind caps-lock to escape (vim)
-setxkbmap -option caps:escape
-
+# Custom dir colors
+eval `dircolors ~/.dir_colors`
