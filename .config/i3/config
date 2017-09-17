@@ -229,5 +229,6 @@ bindsym $mod+m mode "move"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3blocks
+#        status_command i3blocks
+        status_command bumblebee-status -m spotify cmus amixer nic disk:root cpu memory date time -p root.path=/ root.format="/ {left}" memory.format="{percent:5.1f}%" nic.exclude="lo,wlp5s0" -t gruvbox-powerline
 }
