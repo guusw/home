@@ -10,6 +10,8 @@ xrandr --dpi 96
 # Load resources
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
+xmodmap ~/.Xmodmap
+
 numlockx &
 exec i3 --shmlog-size=26214400
 xset r rate 170 30
